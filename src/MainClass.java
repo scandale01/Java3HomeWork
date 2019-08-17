@@ -23,13 +23,13 @@ public class MainClass {
         for (int i = 0; i < cars.length; i++) {
             cars[i] = new Car(race, 20 + (int) (Math.random() * 10));
         }
-        try {
-            cdl.await();
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
         for (int i = 0; i < cars.length; i++) {
             new Thread(cars[i]).start();
+        }
+        try {
+            cdl.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
