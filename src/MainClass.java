@@ -15,7 +15,6 @@ import java.util.concurrent.CyclicBarrier;
 
 public class MainClass {
     public static final int CARS_COUNT = 4;
-    public static volatile boolean IS_FINISHED = false;
     static CyclicBarrier prepareSync = new CyclicBarrier(CARS_COUNT);
     static CountDownLatch startSync = new CountDownLatch(CARS_COUNT);
     static CountDownLatch stopSync = new CountDownLatch(CARS_COUNT);
