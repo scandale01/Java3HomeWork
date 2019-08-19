@@ -5,11 +5,10 @@ public class Tunnel extends Stage {
         this.length = 80;
         this.description = "Тоннель " + length + " метров";
     }
+    static Semaphore smp = new Semaphore(MainClass.CARS_COUNT / 2);
     @Override
     public void go(Car c) {
         try {
-            Semaphore smp = new Semaphore(MainClass.CARS_COUNT / 2);
-            System.out.println("Создался симофор");
             new Thread(() -> {
                 try {
                     System.out.println(c.getName() + " готовится к этапу(ждет): " + description);
